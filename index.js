@@ -2,6 +2,8 @@ var express = require('express');
 var moment = require('moment')
 var bodyParser = require('body-parser')
 var app = express()
+var request = require('request')
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -21,6 +23,7 @@ app.post('/test', function(req,res) {
 	res.write(JSON.stringify({
 		value: req.body.value || null,
 	}));
+	req.body.pipe(request.put('INSERT PUTLINK HERE'));
 	console.log("Value: " + req.body.value);
 });
 
