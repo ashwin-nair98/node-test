@@ -23,7 +23,10 @@ app.post('/test', function(req,res) {
 	res.write(JSON.stringify({
 		value: req.body.value || null,
 	}));
-	req.body.pipe(request.put('INSERT PUTLINK HERE'));
+	var obj = {
+		value: req.body.value || null,
+	};
+	obj.pipe(request.put('INSERT PUTLINK HERE'));
 	console.log("Value: " + req.body.value);
 });
 
